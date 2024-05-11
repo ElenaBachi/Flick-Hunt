@@ -1,13 +1,45 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/main.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <title>Flick Hunt</title>
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+      <img src="/src/images/logo.svg" alt="Flick Hunt" width="250" height="auto" class="logo">
+
+      <div class="find">
+        <input type="text" id="find" class="find" placeholder="Поиск">
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="container">
+      <section class="greet">
+        <h1>Flick Hunt</h1>
+        <p>Find Your Next Favorite Flick with Ease!</p>
+      </section>
+
+      <section class="movies">
+        <ul class="movies__cards"></ul>
+      </section>
+    </div>
+  </main>
+
+
+
+  <script type="module" src="/data.js"></script>
+  <script type="module" src="/main.js"></script>
+</body>
+
 </html>

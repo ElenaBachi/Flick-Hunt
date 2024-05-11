@@ -1,24 +1,61 @@
-import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
+import { data } from "./data";
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
+function doesPosterExist(data) {
+  const key = "poster";
 
-setupCounter(document.querySelector('#counter'))
+  if (key in data) {
+    return `
+    <div class="card__poster">
+      <img src=${data.poster.previewUrl} alt=${data.name}>
+    </div>`;
+  } else {
+    return `
+    <div class="card__poster">
+      <div class="img-stub">
+        <p>No image</p>
+      </div>
+    </div>`;
+  }
+}
+
+function createMovieCard(movie) {
+  const genres = [];
+  const countries = [];
+
+  movie.genres.forEach((genre) => {
+    genres.push(Object.values(genre));
+  });
+
+  movie.countries.forEach((country) => {
+    countries.push(Object.values(country));
+  });
+
+  return `<li class="movie__card card">
+      ${doesPosterExist(movie)}
+
+    <div class="card__description">
+      <h3 class="name">${movie.name}</h3>
+
+      <ul class="description__list">
+        <li class="year">${movie.year}</li>
+        <li class="genre">${genres.join(" ")}</li>
+        <li class="country">${countries.join(" ")}</li>
+      </ul>
+
+      <p class="rating">Рейтинг IMDB ${movie.rating.imdb}</p>
+  </li>`;
+}
+
+async function renderMoviesCards(moviesList) {
+  const container = document.querySelector(".movies__cards");
+
+  moviesList.forEach((movie) => {
+    container.innerHTML += createMovieCard(movie);
+  });
+
+  container.innerHTML += cards;
+}
+
+const moviesList = JSON.parse(data).docs;
+
+renderMoviesCards(moviesList);

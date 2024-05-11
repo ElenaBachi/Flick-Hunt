@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+
+  font-family: "Montserrat", sans-serif;
+  font-weight: 100;
+  font-size: 16px;
+  color: #fff;
+
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    174deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba($dark-violet, 1) 47%,
+    rgba($lighter-violet, 1) 89%,
+    rgba($light-violet, 1) 100%
+  );
+}
+
+.container {
+  @include size(90%, auto);
+  margin: 0 auto;
+}
+
+button {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+input {
+  border: none;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+section {
+  margin-bottom: 50px;
+}
+
+ul {
+  list-style: none;
+}
