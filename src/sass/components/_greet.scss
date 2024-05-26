@@ -1,0 +1,14 @@
+.greet {
+  @include flex(column, center, flex-start);
+
+  h1 {
+    font-size: 2.1875rem;
+    font-weight: 100;
+    color: #fff;
+  }
+
+  p {
+    font-size: 1.875rem;
+    color: $light-violet;
+  }
+}
