@@ -151,4 +151,98 @@ ul {
   flex-wrap: wrap;
 }
 
+#filmPopup {
+  margin: 0 auto;
+  margin-top: 25%;
+  transform: translateY(-50%);
+  background: transparent;
+  color: #fff;
+  border: none;
+  outline: none;
+}
+
+body#filmPopup {
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.film-info__img {
+  width: auto;
+  max-height: 500px;
+}
+
+#closeBtn {
+  position: relative;
+  width: 42px;
+  height: 42px;
+  margin-left: auto;
+  cursor: pointer;
+}
+
+.closeBtnIn {
+  position: absolute;
+  right: 0;
+  width: 42px;
+  height: 42px;
+  text-align: center;
+}
+
+.closeBtnText {
+  font-size: 8px;
+  line-height: 27px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #8265a7;
+  transition: all 0.3s ease-in;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.closeBtnIn:before,
+.closeBtnIn:after {
+  position: absolute;
+  content: "";
+  height: 2px;
+  width: inherit;
+  background: #8265a7;
+  right: 0;
+  transition: all 0.3s ease-in;
+}
+
+.closeBtnIn:before {
+  top: calc(50% - 2px);
+  transform: rotate(45deg);
+}
+
+.closeBtnIn:after {
+  bottom: 50%;
+  transform: rotate(-45deg);
+}
+
+#closeBtn:hover .closeBtnText {
+  opacity: 1;
+}
+
+#closeBtn:hover .closeBtnIn:before,
+#closeBtn:hover .closeBtnIn:after {
+  transform: rotate(0);
+}
+
+#closeBtn:hover .closeBtnIn:before {
+  top: 0;
+}
+
+#closeBtn:hover .closeBtnIn:after {
+  bottom: 35%;
+}
+
+.film-info__name {
+  margin-bottom: 20px;
+  font-size: 40px;
+}
+
 /*# sourceMappingURL=styles.css.map */
