@@ -1,22 +1,5 @@
 import { data } from "./data";
-
-function doesPosterExist(data) {
-  const key = "poster";
-
-  if (key in data) {
-    return `
-    <div class="card__poster">
-      <img src=${data.poster.previewUrl} alt=${data.name}>
-    </div>`;
-  } else {
-    return `
-    <div class="card__poster">
-      <div class="img-stub">
-        <p>No image</p>
-      </div>
-    </div>`;
-  }
-}
+import { doesPosterExist } from "./utils";
 
 function createMovieCard(movie) {
   const genres = [];
@@ -30,7 +13,7 @@ function createMovieCard(movie) {
     countries.push(Object.values(country));
   });
 
-  return `<li class="movie__card card">
+  return `<li class="movie__card card" data-id=${movie.id}>
       ${doesPosterExist(movie)}
 
     <div class="card__description">
