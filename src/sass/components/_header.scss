@@ -15,35 +15,4 @@
   .logo {
     @include size(200px, 80px);
   }
-
-  .find {
-    position: relative;
-
-    #find {
-      @include size(150px, 35px);
-      padding-left: 15px;
-
-      background-color: #fff;
-
-      border: 1px solid #fff;
-      border-radius: 5%;
-
-      transition: width 0.6s ease;
-
-      &:focus {
-        width: 300px;
-      }
-    }
-
-    &::after {
-      content: "";
-      position: absolute;
-      right: 10px;
-      top: 3px;
-      width: 30px;
-      height: 30px;
-      background-image: url("/src/images/loup-icon.svg");
-      background-repeat: no-repeat;
-    }
-  }
 }

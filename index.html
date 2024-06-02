@@ -17,9 +17,9 @@
     <div class="container">
       <img src="/src/images/logo.svg" alt="Flick Hunt" width="250" height="auto" class="logo">
 
-      <div class="find">
-        <input type="text" id="find" class="find" placeholder="Поиск">
-      </div>
+      <form class="search">
+        <input type="text" id="search" placeholder="Поиск">
+      </form>
     </div>
   </header>
 
@@ -41,9 +41,18 @@
     </dialog>
   </div>
 
-  <script type="module" src="/data.js"></script>
-  <script type="module" src="/modal.js"></script>
-  <script type="module" src="/main.js"></script>
+  <div class="container">
+    <div class="warning hidden">
+      <p>К сожалению, по Вашему запросу ичего не найдено</p>
+      <p>Попробуйте начать поиск заново</p>
+    </div>
+  </div>
+
+  <script type="module" src="src/scripts/data.js"></script>
+  <script type="module" src="src/scripts/main.js"></script>
+  <script type="module" src="src/scripts/search.js"></script>
+  <script type="module" src="src/scripts/modal.js"></script>
+
 </body>
 
 </html>

@@ -20,6 +20,7 @@ body {
     rgba($lighter-violet, 1) 89%,
     rgba($light-violet, 1) 100%
   );
+  background-repeat: no-repeat;
 }
 
 .container {
@@ -48,4 +49,8 @@ section {
 
 ul {
   list-style: none;
+}
+
+.hidden {
+  display: none;
 }

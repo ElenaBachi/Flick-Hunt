@@ -1,17 +1,23 @@
 import { data } from "./data";
 import { doesPosterExist } from "./utils";
 
-function createMovieCard(movie) {
+export const moviesList = JSON.parse(data).docs;
+
+export function createMovieCard(movie) {
   const genres = [];
   const countries = [];
 
-  movie.genres.forEach((genre) => {
-    genres.push(Object.values(genre));
-  });
+  movie.genres
+    ? movie.genres.forEach((genre) => {
+        genres.push(Object.values(genre));
+      })
+    : "";
 
-  movie.countries.forEach((country) => {
-    countries.push(Object.values(country));
-  });
+  movie.countries
+    ? movie.countries.forEach((country) => {
+        countries.push(Object.values(country));
+      })
+    : "";
 
   return `<li class="movie__card card" data-id=${movie.id}>
       ${doesPosterExist(movie)}
@@ -29,16 +35,13 @@ function createMovieCard(movie) {
   </li>`;
 }
 
-async function renderMoviesCards(moviesList) {
+export async function renderMoviesCards(moviesList) {
   const container = document.querySelector(".movies__cards");
+  container.innerHTML = "";
 
   moviesList.forEach((movie) => {
     container.innerHTML += createMovieCard(movie);
   });
-
-  container.innerHTML += cards;
 }
-
-const moviesList = JSON.parse(data).docs;
 
 renderMoviesCards(moviesList);
