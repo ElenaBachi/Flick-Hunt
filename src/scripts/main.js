@@ -32,6 +32,7 @@ export function createMovieCard(movie) {
       </ul>
 
       <p class="rating">Рейтинг IMDB ${movie.rating.imdb}</p>
+    </div>
   </li>`;
 }
 
