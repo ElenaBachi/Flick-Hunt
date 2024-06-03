@@ -19,25 +19,25 @@ function showMovieInfo(movieId) {
 }
 
 export function openMovieModal() {
-  const moviesCards = document.querySelectorAll(".card");
+  const moviesCards = document.querySelector(".movies__cards");
   const filmPopup = document.querySelector("#filmPopup");
 
-  moviesCards.forEach((card) => {
-    card.addEventListener("click", (ev) => {
-      ev.preventDefault();
+  moviesCards.addEventListener("click", (ev) => {
+    ev.preventDefault();
+
+    const elem = ev.target.closest(".card");
+    filmPopup.innerHTML = "";
+
+    const movieId = elem.dataset.id;
+    filmPopup.innerHTML += showMovieInfo(movieId);
+    filmPopup.showModal();
+    document.body.style.overflow = "hidden";
+
+    const closeBtn = document.querySelector("#closeBtn");
+    closeBtn.addEventListener("click", () => {
+      filmPopup.close();
       filmPopup.innerHTML = "";
-
-      const movieId = card.dataset.id;
-      filmPopup.innerHTML += showMovieInfo(movieId);
-      filmPopup.showModal();
-      document.body.style.overflow = "hidden";
-
-      const closeBtn = document.querySelector("#closeBtn");
-      closeBtn.addEventListener("click", () => {
-        filmPopup.close();
-        filmPopup.innerHTML = "";
-        document.body.style.overflow = "";
-      });
+      document.body.style.overflow = "";
     });
   });
 }
